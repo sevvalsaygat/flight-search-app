@@ -4,6 +4,97 @@ import { Icons } from "@app/components";
 
 type FooterPropTypes = {};
 
+const LEFT_SECTION = [
+  {
+    title: "Domestic Popular Cities",
+  },
+  {
+    title: "International Popular Cities",
+  },
+  {
+    title: "Popular Domestic Destinations",
+  },
+  {
+    title: "Popular International Destinations",
+  },
+  {
+    title: "Popular Countries",
+  },
+  {
+    title: "Popular Airlines",
+  },
+  {
+    title: "Popular Airports",
+  },
+];
+
+const MIDDLE_SECTION = [
+  {
+    title: "For My Job",
+  },
+  {
+    title: "Mobile Application",
+  },
+  {
+    title: "Use and Confidentiality Agreement",
+  },
+  {
+    title: "Transaction Guide",
+  },
+  {
+    title: "Information Society Services",
+  },
+  {
+    title: "Information Security Policy",
+  },
+  {
+    title: "Ticket Cancellation Insurance",
+  },
+  {
+    title:
+      "Personal Data Protection, Privacy Policy and Usage Principles of Cookies",
+  },
+  {
+    title: "Personal Data Protection Institution Announcements",
+  },
+  {
+    title: "Policies for Use of Cookies",
+  },
+];
+
+const RIGHT_SECTION = [
+  {
+    title: "Flight Ticket",
+  },
+  {
+    title: "Hotel",
+  },
+  {
+    title: "Rent a Car",
+  },
+  {
+    title: "Transfer",
+  },
+  {
+    title: "Where To Go?",
+  },
+  {
+    title: "About Us",
+  },
+  {
+    title: "Contact",
+  },
+  {
+    title: "Help",
+  },
+  {
+    title: "Announcements",
+  },
+  {
+    title: "Campaigns",
+  },
+];
+
 const Footer: React.FC<FooterPropTypes> = () => {
   return (
     <div
@@ -14,96 +105,44 @@ const Footer: React.FC<FooterPropTypes> = () => {
         <div className="mx-auto flex flex-row gap-40">
           <div className="justify-center">
             <ul className="text-13 font-medium text-gray-300 mt-3">
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Domestic Popular Cities
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                International Popular Cities
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Popular Domestic Destinations
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Popular International Destinations
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Popular Countries
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Popular Airlines
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Popular Airports
-              </li>
+              {LEFT_SECTION.map((link, index) => {
+                return (
+                  <li
+                    key={index}
+                    className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline"
+                  >
+                    {link.title}
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div className=" justify-center">
             <ul className="text-13 font-medium text-gray-300 mt-3">
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                For My Job
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Mobile Application
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Use and Confidentiality Agreement
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Transaction Guide
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Information Society Services
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Information Security Policy
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Ticket Cancellation Insurance
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Personal Data Protection, Privacy Policy and Usage Principles of
-                Cookies
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Personal Data Protection Institution Announcements
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Policies for Use of Cookies
-              </li>
+              {MIDDLE_SECTION.map((link, index) => {
+                return (
+                  <li
+                    key={index}
+                    className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline"
+                  >
+                    {link.title}
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div className="justify-center">
             <ul className="text-13 font-medium text-gray-300 mt-3">
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Flight Ticket
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Hotel
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Rent a Car
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Transfer
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Where To Go?
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                About Us
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Contact
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Help
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Announcements
-              </li>
-              <li className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline">
-                Campaigns
-              </li>
+              {RIGHT_SECTION.map((link, index) => {
+                return (
+                  <li
+                    key={index}
+                    className="cursor-pointer hover:text-gray-200 px-3 py-2 hover:underline"
+                  >
+                    {link.title}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
