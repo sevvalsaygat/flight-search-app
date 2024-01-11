@@ -1,5 +1,5 @@
 import Form from "./Form";
-import Footer from "./Layout/App/Footer";
+import Layout from "./Layout";
 import Icons from "./Icons";
 
-export { Form, Footer, Icons };
+export { Form, Layout, Icons };
