@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useId } from "react";
 
 import ReactSelect from "react-select";
 import {
@@ -50,6 +50,8 @@ const Select: React.FC<SelectPropTypes> = ({
     formState: { errors },
   } = useFormContext();
 
+  const instanceId = useId();
+
   const fieldError = errors[name];
 
   return (
@@ -71,6 +73,7 @@ const Select: React.FC<SelectPropTypes> = ({
           defaultValue={defaultValue}
           render={({ field }) => (
             <ReactSelect
+              instanceId={instanceId}
               options={options}
               isMulti={isMulti}
               isSearchable={isSearchable}

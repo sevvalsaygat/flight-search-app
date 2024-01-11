@@ -23,7 +23,7 @@ const config: Config = {
         },
       },
       fontSize: {
-        13: "13px",
+        mini: "0.8125rem",
       },
     },
   },

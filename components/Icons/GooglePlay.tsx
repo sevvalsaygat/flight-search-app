@@ -62,57 +62,57 @@ const SvgGooglePlay = (props: SVGProps<SVGSVGElement>) => {
         d="M36.7512 24.9996H35.9624V22.8963H36.7512V24.9996Z"
         fill="white"
         stroke="white"
-        stroke-width="0.250399"
-        stroke-miterlimit="10"
+        strokeWidth="0.250399"
+        strokeMiterlimit="10"
       />
       <path
         d="M38.1423 29.5459V22.8962H40.2347C40.6858 22.8745 41.1365 22.946 41.5587 23.1062C41.9809 23.2664 42.3655 23.5119 42.6886 23.8274C43.2807 24.4884 43.6081 25.3446 43.6081 26.232C43.6081 27.1194 43.2807 27.9756 42.6886 28.6366C42.3637 28.9482 41.9782 29.1896 41.5561 29.346C41.134 29.5025 40.6842 29.5705 40.2347 29.5459H38.1423ZM38.9968 28.7243H40.2347C40.5634 28.7453 40.8928 28.6959 41.2008 28.5794C41.5088 28.4628 41.7883 28.2817 42.0207 28.0483C42.253 27.8149 42.4328 27.5346 42.548 27.2261C42.6632 26.9175 42.7112 26.588 42.6886 26.2594C42.721 25.9251 42.6804 25.5878 42.5697 25.2708C42.4591 24.9537 42.281 24.6644 42.0477 24.4228C41.8145 24.1812 41.5316 23.9931 41.2186 23.8714C40.9056 23.7497 40.5699 23.6973 40.2347 23.7179H38.9968V28.7243Z"
         fill="white"
         stroke="white"
-        stroke-width="0.250399"
-        stroke-miterlimit="10"
+        strokeWidth="0.250399"
+        strokeMiterlimit="10"
       />
       <path
         d="M48.6374 23.7179H45.6029V25.8322H48.3416V26.6319H45.6029V28.7462H48.6374V29.5459H44.7484V22.8963H48.6374V23.7179Z"
         fill="white"
         stroke="white"
-        stroke-width="0.250399"
-        stroke-miterlimit="10"
+        strokeWidth="0.250399"
+        strokeMiterlimit="10"
       />
       <path
         d="M49.8646 29.5459V22.8963H50.9053L54.1918 28.0889V26.7962V22.8963H55.0463V29.5459H54.159L50.7629 24.0684V25.3611V29.5459H49.8646Z"
         fill="white"
         stroke="white"
-        stroke-width="0.250399"
-        stroke-miterlimit="10"
+        strokeWidth="0.250399"
+        strokeMiterlimit="10"
       />
       <path
         d="M57.8394 29.5459L60.348 22.8744H61.323L63.8317 29.5459H62.8786L62.2433 27.7384H59.4388L58.7815 29.5459H57.8394ZM59.7236 26.9387H61.9146L60.8191 23.926L59.7236 26.9387Z"
         fill="white"
         stroke="white"
-        stroke-width="0.250399"
-        stroke-miterlimit="10"
+        strokeWidth="0.250399"
+        strokeMiterlimit="10"
       />
       <path
         d="M64.6978 29.5459V22.8963H65.5632V28.7462H68.4444V29.5459H64.6978Z"
         fill="white"
         stroke="white"
-        stroke-width="0.250399"
-        stroke-miterlimit="10"
+        strokeWidth="0.250399"
+        strokeMiterlimit="10"
       />
       <path
         d="M69.3751 29.5459V22.8963H70.2296V29.5459H69.3751Z"
         fill="white"
         stroke="white"
-        stroke-width="0.250399"
-        stroke-miterlimit="10"
+        strokeWidth="0.250399"
+        strokeMiterlimit="10"
       />
       <path
         d="M71.7635 29.5459V22.8963H72.859L76.1455 28.0889V26.7962V22.8963H77V29.5459H76.1127L72.7166 24.0684V25.3611V29.5459H71.7635Z"
         fill="white"
         stroke="white"
-        stroke-width="0.250399"
-        stroke-miterlimit="10"
+        strokeWidth="0.250399"
+        strokeMiterlimit="10"
       />
       <defs>
         <linearGradient
@@ -123,12 +123,12 @@ const SvgGooglePlay = (props: SVGProps<SVGSVGElement>) => {
           y2="22.3037"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#00A0FF" />
-          <stop offset="0.01" stop-color="#00A1FF" />
-          <stop offset="0.26" stop-color="#00BEFF" />
-          <stop offset="0.51" stop-color="#00D2FF" />
-          <stop offset="0.76" stop-color="#00DFFF" />
-          <stop offset="1" stop-color="#00E3FF" />
+          <stop stopColor="#00A0FF" />
+          <stop offset="0.01" stopColor="#00A1FF" />
+          <stop offset="0.26" stopColor="#00BEFF" />
+          <stop offset="0.51" stopColor="#00D2FF" />
+          <stop offset="0.76" stopColor="#00DFFF" />
+          <stop offset="1" stopColor="#00E3FF" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_237_408"
@@ -138,10 +138,10 @@ const SvgGooglePlay = (props: SVGProps<SVGSVGElement>) => {
           y2="17.5"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFE000" />
-          <stop offset="0.41" stop-color="#FFBD00" />
-          <stop offset="0.78" stop-color="#FFA500" />
-          <stop offset="1" stop-color="#FF9C00" />
+          <stop stopColor="#FFE000" />
+          <stop offset="0.41" stopColor="#FFBD00" />
+          <stop offset="0.78" stopColor="#FFA500" />
+          <stop offset="1" stopColor="#FF9C00" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_237_408"
@@ -151,8 +151,8 @@ const SvgGooglePlay = (props: SVGProps<SVGSVGElement>) => {
           y2="39.4187"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF3A44" />
-          <stop offset="1" stop-color="#C31162" />
+          <stop stopColor="#FF3A44" />
+          <stop offset="1" stopColor="#C31162" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_237_408"
@@ -162,11 +162,11 @@ const SvgGooglePlay = (props: SVGProps<SVGSVGElement>) => {
           y2="9.04747"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#32A071" />
-          <stop offset="0.07" stop-color="#2DA771" />
-          <stop offset="0.48" stop-color="#15CF74" />
-          <stop offset="0.8" stop-color="#06E775" />
-          <stop offset="1" stop-color="#00F076" />
+          <stop stopColor="#32A071" />
+          <stop offset="0.07" stopColor="#2DA771" />
+          <stop offset="0.48" stopColor="#15CF74" />
+          <stop offset="0.8" stopColor="#06E775" />
+          <stop offset="1" stopColor="#00F076" />
         </linearGradient>
       </defs>
     </svg>

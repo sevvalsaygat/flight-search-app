@@ -104,7 +104,7 @@ const Footer: React.FC<FooterPropTypes> = () => {
       <div className="flex flex-col px-80 py-5 pb-14 w-full">
         <div className="mx-auto flex flex-row gap-40">
           <div className="justify-center">
-            <ul className="text-13 font-medium text-gray-300 mt-3">
+            <ul className="text-mini font-medium text-gray-300 mt-3">
               {LEFT_SECTION.map((link, index) => {
                 return (
                   <li
@@ -118,7 +118,7 @@ const Footer: React.FC<FooterPropTypes> = () => {
             </ul>
           </div>
           <div className=" justify-center">
-            <ul className="text-13 font-medium text-gray-300 mt-3">
+            <ul className="text-mini font-medium text-gray-300 mt-3">
               {MIDDLE_SECTION.map((link, index) => {
                 return (
                   <li
@@ -132,7 +132,7 @@ const Footer: React.FC<FooterPropTypes> = () => {
             </ul>
           </div>
           <div className="justify-center">
-            <ul className="text-13 font-medium text-gray-300 mt-3">
+            <ul className="text-mini font-medium text-gray-300 mt-3">
               {RIGHT_SECTION.map((link, index) => {
                 return (
                   <li
