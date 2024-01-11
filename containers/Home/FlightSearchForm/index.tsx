@@ -23,10 +23,7 @@ type SearchFormType = {
 
 const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
   const useFormMethods = useForm<SearchFormType>();
-  const { handleSubmit } = useFormMethods;
-
   const setFlights = useFlightStore((state) => state.setFlights);
-
   const { mutate } = api.useGetFlights({
     onSuccess: (data) => {
       setFlights(data.data);
@@ -36,8 +33,9 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
       // TODO: show error message
     },
   });
-
   const { data } = api.useGetAirports();
+
+  const { handleSubmit } = useFormMethods;
   const airportOptions =
     data?.data.map((airport) => ({
       value: airport.refCode,
