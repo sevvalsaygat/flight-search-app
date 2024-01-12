@@ -20,6 +20,7 @@ const config: Config = {
         },
         neutral: {
           100: "#bbbbbb",
+          200: "#dee1e3",
         },
       },
       fontSize: {
