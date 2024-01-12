@@ -99,7 +99,7 @@ const Footer: React.FC<FooterPropTypes> = () => {
   return (
     <div
       id="footer"
-      className="w-full bg-zinc-600 flex justify-center items-center"
+      className="w-full bg-slate-900 flex justify-center items-center"
     >
       <div className="flex flex-col px-80 py-5 pb-14 w-full">
         <div className="mx-auto flex flex-row gap-40">
@@ -147,15 +147,15 @@ const Footer: React.FC<FooterPropTypes> = () => {
           </div>
         </div>
         <div className="border mt-7 border-zinc-500"></div>
-        <div className="flex justify-between px-20">
-          <div className="flex flex-row items-center gap-2">
+        <div className="flex justify-between px-7">
+          <div className="flex flex-row items-center gap-1">
             <Icons.SvgVisa className="text-neutral-100" />
-            <Icons.SvgMasterCard />
+            <Icons.SvgMasterCard className="-ml-2" />
             <Icons.SvgGlobalSign className="mb-1 text-neutral-100" />
             <Icons.SvgSecureShopping className="text-neutral-100" />
             <Icons.SvgTroy className="text-neutral-100" />
           </div>
-          <div className="flex flex-row items-center gap-2">
+          <div className="flex flex-row items-center gap-1">
             <Icons.SvgAppleStore />
             <Icons.SvgGooglePlay />
             <Icons.SvgAppGallery />
