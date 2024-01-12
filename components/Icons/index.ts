@@ -11,6 +11,15 @@ import SvgHelp from "./Help";
 import SvgSignUp from "./SignUp";
 import SvgSignIn from "./SignIn";
 import SvgLanguage from "./Language";
+import SvgAirplane from "./Airplane";
+import SvgAirplaneLanding from "./AirplaneLanding";
+import SvgAirplaneTakeOff from "./AirplaneTakeOff";
+import SvgExchange from "./Exchange";
+import SvgCalendar from "./Calendar";
+import SvgHotel from "./Hotel";
+import SvgCar from "./Car";
+import SvgTransfer from "./Transfer";
+import SvgAirport from "./Airport";
 
 export default {
   SvgVisa,
@@ -26,4 +35,13 @@ export default {
   SvgSignUp,
   SvgSignIn,
   SvgLanguage,
+  SvgAirplane,
+  SvgAirplaneLanding,
+  SvgAirplaneTakeOff,
+  SvgExchange,
+  SvgCalendar,
+  SvgHotel,
+  SvgCar,
+  SvgTransfer,
+  SvgAirport,
 };

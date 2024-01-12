@@ -57,7 +57,7 @@ const Header: React.FC<HeaderPropTypes> = () => {
     <div className="flex flex-row justify-between w-full bg-slate-800 shadow-sm h-fit sticky p-3 px-28">
       <div className="flex flex-row items-center gap-6">
         <div className="flex flex-row items-center gap-3 cursor-pointer">
-          <Image src="/airplane.png" width={50} height={50} alt="airplane" />
+          <Image src="/airplane.png" width={40} height={40} alt="airplane" />
           <div className="flex flex-row items-center">
             <div className="flex text-lg font-light text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-rose-300">
               SKYTIME

@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.search-bar-bg {
+  background-image: url("/travel.jpg");
+  background-size: 100% 100%;
+}
+
+.search-bar-label {
+  text-shadow: 1.5px 1.5px 1.5px #1e293b;
+}
+
+.rs-placeholder>input {
+  color: #ff522c;
+}
