@@ -5,7 +5,9 @@ import { Icons } from "@app/components";
 
 type HeaderPropTypes = {};
 
-const HEADER_LEFT_ITEM = [
+const HEADER_LEFT_ITEM: Array<{
+  title: string;
+}> = [
   {
     title: "Flight",
   },
@@ -23,7 +25,6 @@ const HEADER_LEFT_ITEM = [
 const HEADER_RIGHT_ITEM: Array<{
   icon: React.FC;
   title: string;
-  className?: string;
 }> = [
   {
     icon: () => <Icons.SvgLightBlub />,
@@ -42,8 +43,11 @@ const HEADER_RIGHT_ITEM: Array<{
     title: "Sign In",
   },
   {
-    className: "|",
-    icon: () => <Icons.SvgLanguage className="ml-2" />,
+    icon: () => (
+      <div className="flex items-center">
+        | <Icons.SvgLanguage className="ml-2" />
+      </div>
+    ),
     title: "English/TRY",
   },
 ];
@@ -53,13 +57,7 @@ const Header: React.FC<HeaderPropTypes> = () => {
     <div className="flex flex-row justify-between w-full bg-slate-800 shadow-sm h-fit sticky p-3 px-28">
       <div className="flex flex-row items-center gap-6">
         <div className="flex flex-row items-center gap-3 cursor-pointer">
-          <Image
-            src="/airplane.png"
-            width={50}
-            height={50}
-            alt="airplane"
-            className=""
-          />
+          <Image src="/airplane.png" width={50} height={50} alt="airplane" />
           <div className="flex flex-row items-center">
             <div className="flex text-lg font-light text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-rose-300">
               SKYTIME
@@ -70,26 +68,25 @@ const Header: React.FC<HeaderPropTypes> = () => {
           </div>
         </div>
         <div className="flex flex-row gap-3 ml-2">
-          {HEADER_LEFT_ITEM.map((link, index) => {
+          {HEADER_LEFT_ITEM.map(({ title }, index) => {
             return (
               <div
                 key={index}
                 className="text-white text-xs hover:text-neutral-200 cursor-pointer"
               >
-                {link.title}
+                {title}
               </div>
             );
           })}
         </div>
       </div>
       <div className="flex flex-row items-center gap-3">
-        {HEADER_RIGHT_ITEM.map(({ icon: Icon, title, className }, index) => {
+        {HEADER_RIGHT_ITEM.map(({ icon: Icon, title }, index) => {
           return (
             <div
               key={index}
               className="flex flex-row items-center text-white gap-0.5 text-xs hover:text-neutral-200 cursor-pointer"
             >
-              {className}
               <Icon />
               {title}
             </div>
