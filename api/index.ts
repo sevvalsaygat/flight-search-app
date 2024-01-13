@@ -89,3 +89,8 @@ export interface ErrorResponseType {
 export interface ListResponseType<T> {
   data: T[];
 }
+
+export interface ListFlightsResponse {
+  departureFlights: FlightType[];
+  returnFlights: FlightType[];
+}

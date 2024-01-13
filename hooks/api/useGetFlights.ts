@@ -4,18 +4,18 @@ import type { MutateOptions } from "@tanstack/react-query";
 import type { AxiosError } from "axios";
 
 import { useAxios } from "@app/hooks";
-import { ListResponseType, FlightType, ErrorResponseType } from "@api";
+import { ErrorResponseType, ListFlightsResponse } from "@api";
 
 type UseGetFlightsPropTypes = {
   from: string;
   to: string;
   departure: string;
-  return: string;
+  return?: string;
 };
 
 export default function useGetFlights(
   props: MutateOptions<
-    ListResponseType<FlightType>,
+    ListFlightsResponse,
     AxiosError<ErrorResponseType>,
     UseGetFlightsPropTypes
   >
@@ -26,7 +26,7 @@ export default function useGetFlights(
     mutationKey: ["useGetFlights"],
     mutationFn: (payload: UseGetFlightsPropTypes) =>
       axiosInstance
-        .post<ListResponseType<FlightType>>("api/flights/search", payload)
+        .post<ListFlightsResponse>("api/flights/search", payload)
         .then((response) => response.data),
     ...props,
   });

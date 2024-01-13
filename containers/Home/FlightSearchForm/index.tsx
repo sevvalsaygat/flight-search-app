@@ -19,18 +19,22 @@ type SearchFormType = {
     value: string;
   };
   departure: string;
-  return: string;
+  return?: string;
 };
 
 const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
   const useFormMethods = useForm<SearchFormType>();
   const setFlights = useFlightStore((state) => state.setFlights);
+  const setIsOneWayStore = useFlightStore((state) => state.setIsOneWay);
   const { mutate } = api.useGetFlights({
     onSuccess: (data) => {
-      setFlights(data.data);
+      setFlights(data);
     },
     onError: (error) => {
-      setFlights([]);
+      setFlights({
+        departureFlights: [],
+        returnFlights: [],
+      });
       // TODO: show error message
     },
   });
@@ -50,8 +54,14 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
       from: formData.from.value,
       to: formData.to.value,
       departure: formData.departure,
-      return: formData.return,
+      ...(isOneWay
+        ? {}
+        : {
+            return: formData.return,
+          }),
     });
+
+    setIsOneWayStore(isOneWay);
   };
 
   const SEARCH_BY_OPTIONS: Array<{

@@ -1,24 +1,21 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 import { useFlightStore } from "@app/stores";
+import { Home } from "@app/containers";
 
 type FlightListPropTypes = {};
 
 const FlightList: React.FC<FlightListPropTypes> = () => {
   const flights = useFlightStore((state) => state.flights);
+  const isOneWay = useFlightStore((state) => state.isOneWay);
 
   return (
-    <div>
-      {flights.map((flight, index) => {
-        return (
-          <div key={index} className="flex flex-row">
-            <div>{flight.from.name}</div>
-            <div>{flight.to.name}</div>
-          </div>
-        );
-      })}
+    <div className="flex flex-row">
+      <Home.FlightListTable flights={flights.departureFlights} />
+      {!isOneWay && <Home.FlightListTable flights={flights.returnFlights} />}
     </div>
   );
 };

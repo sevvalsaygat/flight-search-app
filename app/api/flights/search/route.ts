@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
+import dayjs from "dayjs";
+
 import { flights } from "@api/mock";
-import { ListResponseType, FlightType, ErrorResponseType } from "@api";
+import { FlightType, ErrorResponseType, ListFlightsResponse } from "@api";
 
 export async function POST(req: NextRequest) {
   try {
@@ -10,11 +12,24 @@ export async function POST(req: NextRequest) {
     const to = body.to;
     const departureDate = body.departure;
     const returnDate = body.return;
-    const filteredFlights = flights.filter(
-      (f) => f.from.refCode === from && f.to.refCode === to
+    const filteredDepartureFlights = flights.filter(
+      (f) =>
+        f.from.refCode === from &&
+        f.to.refCode === to &&
+        dayjs(departureDate).format("DD/MM/YYYY") ===
+          dayjs(f.departure).format("DD/MM/YYYY")
     );
-    return NextResponse.json<ListResponseType<FlightType>>({
-      data: filteredFlights as FlightType[],
+    const filteredReturnFlights = flights.filter(
+      (f) =>
+        f.from.refCode === to &&
+        f.to.refCode === from &&
+        dayjs(returnDate).format("DD/MM/YYYY") ===
+          dayjs(f.departure).format("DD/MM/YYYY")
+    );
+
+    return NextResponse.json<ListFlightsResponse>({
+      departureFlights: filteredDepartureFlights as FlightType[],
+      returnFlights: filteredReturnFlights as FlightType[],
     });
   } catch (error) {
     return NextResponse.json<ErrorResponseType>(
