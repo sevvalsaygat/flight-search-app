@@ -24,6 +24,9 @@ type SelectPropTypes = {
   defaultValue?: string;
   className?: string;
   variant?: "primary";
+  leftIcon?: React.FC;
+  disabled?: boolean;
+  placeholder?: string;
 };
 
 const DatePicker: React.FC<SelectPropTypes> = ({
@@ -33,6 +36,9 @@ const DatePicker: React.FC<SelectPropTypes> = ({
   defaultValue = null,
   className,
   variant,
+  leftIcon: LeftIcon,
+  disabled = false,
+  placeholder,
 }) => {
   const {
     control,
@@ -44,15 +50,12 @@ const DatePicker: React.FC<SelectPropTypes> = ({
   return (
     <React.Fragment>
       {label && (
-        <label className="block text-sm font-medium leading-6 text-gray-900">
+        <label className="flex flex-row items-center gap-1 text-sm font-semibold leading-6 text-purple-900">
+          {LeftIcon && <LeftIcon />}
           {label}
         </label>
       )}
-      <div
-        className={cn({
-          "mt-2": !!label,
-        })}
-      >
+      <div>
         <Controller
           name={name}
           control={control}
@@ -63,16 +66,18 @@ const DatePicker: React.FC<SelectPropTypes> = ({
               selected={field.value}
               onChange={field.onChange}
               onBlur={field.onBlur}
+              disabled={disabled}
               className={cn(className, {
-                "w-full h-1/2 mb-4 bg-zinc-200 border border-gray-400 rounded-3 p-3 placeholder:text-sm font-light placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-gray-350 focus:bg-white text-sm":
+                "w-fit text-sm font-light text-purple-900 border border-gray-300 rounded-md p-2 mt-2 placeholder:text-sm placeholder:font-light placeholder:text-purple-100 focus:outline-none focus:ring-2 focus:ring-gray-350 focus:bg-white":
                   variant === "primary",
               })}
+              placeholderText={placeholder}
             />
           )}
         />
       </div>
       {fieldError && (
-        <div className="mt-2 text-red-500">{fieldError.message as string}</div>
+        <div className="text-red-500">{fieldError.message as string}</div>
       )}
     </React.Fragment>
   );

@@ -2,7 +2,7 @@
 
 import React, { useId } from "react";
 
-import ReactSelect from "react-select";
+import ReactSelect, { components } from "react-select";
 import {
   Controller,
   useFormContext,
@@ -10,6 +10,8 @@ import {
   FieldValues,
 } from "react-hook-form";
 import cn from "classnames";
+
+import { Icons } from "@app/components";
 
 type SelectPropTypes = {
   name: string;
@@ -31,6 +33,7 @@ type SelectPropTypes = {
     label: string;
     searchValue?: string;
   }>;
+  leftIcon?: React.FC;
 };
 
 const Select: React.FC<SelectPropTypes> = ({
@@ -44,6 +47,7 @@ const Select: React.FC<SelectPropTypes> = ({
   isSearchable = false,
   isClearable = false,
   options = [],
+  leftIcon: LeftIcon,
 }) => {
   const {
     control,
@@ -57,7 +61,8 @@ const Select: React.FC<SelectPropTypes> = ({
   return (
     <React.Fragment>
       {label && (
-        <label className="block text-sm font-medium leading-6 text-gray-900">
+        <label className="flex flex-row gap-2 items-center text-sm font-semibold leading-6 text-purple-900">
+          {LeftIcon && <LeftIcon />}
           {label}
         </label>
       )}
@@ -78,11 +83,27 @@ const Select: React.FC<SelectPropTypes> = ({
               isMulti={isMulti}
               isSearchable={isSearchable}
               isClearable={isClearable}
-              placeholder={placeholder}
+              placeholder={
+                <div className="text-sm font-light text-purple-100">
+                  {placeholder}
+                </div>
+              }
               className={className}
               value={field.value}
               onChange={field.onChange}
               onBlur={field.onBlur}
+              components={{
+                Option: (props) => (
+                  <components.Option {...props}>
+                    <div className="flex flex-row items-center justify-between text-sm font-light text-purple-900 px-2">
+                      <div>{props.data.label}</div>
+                      <div className="w-4 h-4">
+                        <Icons.SvgAirport />
+                      </div>
+                    </div>
+                  </components.Option>
+                ),
+              }}
             />
           )}
         />
