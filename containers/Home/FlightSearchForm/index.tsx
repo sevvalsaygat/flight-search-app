@@ -62,24 +62,25 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
     {
       title: "Flight",
       icon: () => <Icons.SvgAirplane className="w-4 h-4" />,
+      className: "bg-stone-200 font-semibold text-purple-900",
     },
     {
       title: "Hotel",
       icon: () => <Icons.SvgHotel className="w-4 h-4" />,
       className:
-        "bg-stone-100 hover:bg-stone-200 text-purple-600 hover:text-purple-900",
+        "bg-stone-100 hover:bg-stone-200 font-normal text-purple-600 hover:text-purple-900",
     },
     {
       title: "Rent a Car",
       icon: () => <Icons.SvgCar className="w-4 h-4" />,
       className:
-        "bg-stone-100 hover:bg-stone-200 text-purple-600 hover:text-purple-900",
+        "bg-stone-100 hover:bg-stone-200 font-normal text-purple-600 hover:text-purple-900",
     },
     {
       title: "Transfer",
       icon: () => <Icons.SvgTransfer className="w-4 h-4" />,
       className:
-        "bg-stone-100 hover:bg-stone-200 text-purple-600 hover:text-purple-900",
+        "bg-stone-100 hover:bg-stone-200 font-normal text-purple-600 hover:text-purple-900",
     },
   ];
 
@@ -96,7 +97,7 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
               <div
                 key={index}
                 className={cn(
-                  "flex flex-row gap-1 items-center px-3 py-2 bg-stone-200 rounded-t-lg cursor-pointer text-sm font-semibold text-purple-900",
+                  "flex flex-row gap-1 items-center px-3 py-2 text-sm cursor-pointer rounded-t-lg",
                   className
                 )}
               >
