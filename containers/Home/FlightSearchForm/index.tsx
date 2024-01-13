@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 
-import { FormProvider, useForm, Controller } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
+import cn from "classnames";
 
 import { Form, Icons } from "@app/components";
 import { api } from "@app/hooks";
@@ -34,8 +35,9 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
     },
   });
   const { data } = api.useGetAirports();
+  const [isOneWay, setIsOneWay] = useState(true);
 
-  const { handleSubmit, watch, control } = useFormMethods;
+  const { handleSubmit } = useFormMethods;
   const airportOptions =
     data?.data.map((airport) => ({
       value: airport.refCode,
@@ -52,7 +54,34 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
     });
   };
 
-  const [isOneWay, setIsOneWay] = useState(true);
+  const SEARCH_BY_OPTIONS: Array<{
+    title: string;
+    icon: React.FC;
+    className?: string;
+  }> = [
+    {
+      title: "Flight",
+      icon: () => <Icons.SvgAirplane className="w-4 h-4" />,
+    },
+    {
+      title: "Hotel",
+      icon: () => <Icons.SvgHotel className="w-4 h-4" />,
+      className:
+        "bg-stone-100 hover:bg-stone-200 text-purple-600 hover:text-purple-900",
+    },
+    {
+      title: "Rent a Car",
+      icon: () => <Icons.SvgCar className="w-4 h-4" />,
+      className:
+        "bg-stone-100 hover:bg-stone-200 text-purple-600 hover:text-purple-900",
+    },
+    {
+      title: "Transfer",
+      icon: () => <Icons.SvgTransfer className="w-4 h-4" />,
+      className:
+        "bg-stone-100 hover:bg-stone-200 text-purple-600 hover:text-purple-900",
+    },
+  ];
 
   return (
     <div className="search-bar-bg max-h-[546px]">
@@ -62,22 +91,20 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
       </div>
       <div className="flex flex-col items-center mx-44 my-20">
         <div className="flex flex-row gap-0.5">
-          <div className="flex flex-row gap-1 items-center px-3 py-2 bg-stone-200 rounded-t-lg cursor-pointer text-sm font-semibold text-purple-900">
-            <Icons.SvgAirplane className="w-4 h-4" />
-            Flight
-          </div>
-          <div className="flex flex-row gap-1 items-center px-3 py-2 bg-stone-100 hover:bg-stone-200 rounded-t-lg cursor-pointer text-sm font-normal text-purple-600 hover:text-purple-900">
-            <Icons.SvgHotel className="w-4 h-4" />
-            Hotel
-          </div>
-          <div className="flex flex-row gap-1 items-center px-3 py-2 bg-stone-100 hover:bg-stone-200 rounded-t-lg cursor-pointer text-sm font-normal text-purple-600 hover:text-purple-900">
-            <Icons.SvgCar className="w-4 h-4" />
-            Rent a Car
-          </div>
-          <div className="flex flex-row gap-1 items-center px-3 py-2 bg-stone-100 hover:bg-stone-200 rounded-t-lg cursor-pointer text-sm font-normal text-purple-600 hover:text-purple-900">
-            <Icons.SvgTransfer className="w-4 h-4" />
-            Transfer
-          </div>
+          {SEARCH_BY_OPTIONS.map(({ icon: Icon, title, className }, index) => {
+            return (
+              <div
+                key={index}
+                className={cn(
+                  "flex flex-row gap-1 items-center px-3 py-2 bg-stone-200 rounded-t-lg cursor-pointer text-sm font-semibold text-purple-900",
+                  className
+                )}
+              >
+                <Icon />
+                {title}
+              </div>
+            );
+          })}
         </div>
         <div className="flex flex-col bg-stone-200 rounded-md p-10">
           <div className="flex flex-row gap-4">
@@ -122,7 +149,7 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
                     label="From"
                     options={airportOptions}
                     name="from"
-                    placeholder="Departure point"
+                    placeholder="Point of Departure"
                     isSearchable
                     isClearable
                     className="w-52"
