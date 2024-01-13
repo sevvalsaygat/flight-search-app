@@ -4,8 +4,8 @@ const SvgAirport = (props: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       fill="#000000"
-      width="30px"
-      height="30px"
+      width="18px"
+      height="18px"
       viewBox="0 0 512 512"
       enable-background="new 0 0 512 512"
       id="passenger"

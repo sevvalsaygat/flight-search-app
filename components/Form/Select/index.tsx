@@ -10,7 +10,8 @@ import {
   FieldValues,
 } from "react-hook-form";
 import cn from "classnames";
-import { Icons } from "@/components";
+
+import { Icons } from "@app/components";
 
 type SelectPropTypes = {
   name: string;
@@ -94,9 +95,11 @@ const Select: React.FC<SelectPropTypes> = ({
               components={{
                 Option: (props) => (
                   <components.Option {...props}>
-                    <div className="flex flex-row items-center justify-between text-sm font-light text-purple-900">
-                      {props.data.label}
-                      <Icons.SvgAirport />
+                    <div className="flex flex-row items-center justify-between text-sm font-light text-purple-900 px-2">
+                      <div>{props.data.label}</div>
+                      <div className="w-4 h-4">
+                        <Icons.SvgAirport />
+                      </div>
                     </div>
                   </components.Option>
                 ),
