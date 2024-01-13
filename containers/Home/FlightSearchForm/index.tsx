@@ -26,6 +26,10 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
   const useFormMethods = useForm<SearchFormType>();
   const setFlights = useFlightStore((state) => state.setFlights);
   const setIsOneWayStore = useFlightStore((state) => state.setIsOneWay);
+  const setSearchFormValue = useFlightStore(
+    (state) => state.setSearchFormValue
+  );
+
   const { mutate } = api.useGetFlights({
     onSuccess: (data) => {
       setFlights(data);
@@ -61,6 +65,7 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
           }),
     });
 
+    setSearchFormValue(formData);
     setIsOneWayStore(isOneWay);
   };
 

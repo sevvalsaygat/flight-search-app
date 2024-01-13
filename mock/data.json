@@ -307,6 +307,62 @@
     },
     {
       "to": {
+        "refCode": "BZI",
+        "city": "Balıkesir",
+        "name": "Balıkesir Merkez Havalimanı - Balıkesir"
+      },
+      "from": {
+        "refCode": "SAW",
+        "city": "İstanbul Anadolu",
+        "name": "Sabiha Gökçen Havalimanı - İstanbul Anadolu"
+      },
+      "departure": "2024-01-11T07:00:38.470Z",
+      "arrival": "2024-01-11T07:56:38.470Z",
+      "company": {
+        "name": "PEGASUS",
+        "logo": "/images/logo/pegasus.png"
+      },
+      "remainingSeatCount": 28,
+      "isAvailable": true,
+      "price": 1187,
+      "code": "PC-4096",
+      "duration": {
+        "hour": 2,
+        "minute": 56
+      },
+      "class": "BUSINESS",
+      "baggage": 30
+    },
+    {
+      "from": {
+        "refCode": "BZI",
+        "city": "Balıkesir",
+        "name": "Balıkesir Merkez Havalimanı - Balıkesir"
+      },
+      "to": {
+        "refCode": "SAW",
+        "city": "İstanbul Anadolu",
+        "name": "Sabiha Gökçen Havalimanı - İstanbul Anadolu"
+      },
+      "departure": "2024-01-13T07:00:38.470Z",
+      "arrival": "2024-01-13T07:56:38.470Z",
+      "company": {
+        "name": "PEGASUS",
+        "logo": "/images/logo/pegasus.png"
+      },
+      "remainingSeatCount": 28,
+      "isAvailable": true,
+      "price": 3187,
+      "code": "PC-4096",
+      "duration": {
+        "hour": 2,
+        "minute": 56
+      },
+      "class": "BUSINESS",
+      "baggage": 30
+    },
+    {
+      "to": {
         "refCode": "SAW",
         "city": "İstanbul Anadolu",
         "name": "Sabiha Gökçen Havalimanı - İstanbul Anadolu"

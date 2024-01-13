@@ -11,6 +11,7 @@ type UseGetFlightsPropTypes = {
   to: string;
   departure: string;
   return?: string;
+  sortBy?: string;
 };
 
 export default function useGetFlights(
