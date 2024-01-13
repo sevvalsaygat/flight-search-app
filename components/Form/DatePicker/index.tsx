@@ -25,6 +25,8 @@ type SelectPropTypes = {
   className?: string;
   variant?: "primary";
   leftIcon?: React.FC;
+  disabled?: boolean;
+  placeholder?: string;
 };
 
 const DatePicker: React.FC<SelectPropTypes> = ({
@@ -35,6 +37,8 @@ const DatePicker: React.FC<SelectPropTypes> = ({
   className,
   variant,
   leftIcon: LeftIcon,
+  disabled = false,
+  placeholder,
 }) => {
   const {
     control,
@@ -62,11 +66,12 @@ const DatePicker: React.FC<SelectPropTypes> = ({
               selected={field.value}
               onChange={field.onChange}
               onBlur={field.onBlur}
+              disabled={disabled}
               className={cn(className, {
                 "w-fit text-sm font-light text-purple-900 border border-gray-300 rounded-md p-2 mt-2 placeholder:text-sm placeholder:font-light placeholder:text-purple-100 focus:outline-none focus:ring-2 focus:ring-gray-350 focus:bg-white":
                   variant === "primary",
               })}
-              placeholderText=".../.../..."
+              placeholderText={placeholder}
             />
           )}
         />

@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 
-import { FormProvider, useForm } from "react-hook-form";
+import { FormProvider, useForm, Controller } from "react-hook-form";
 
 import { Form, Icons } from "@app/components";
 import { api } from "@app/hooks";
@@ -35,7 +35,7 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
   });
   const { data } = api.useGetAirports();
 
-  const { handleSubmit } = useFormMethods;
+  const { handleSubmit, watch, control } = useFormMethods;
   const airportOptions =
     data?.data.map((airport) => ({
       value: airport.refCode,
@@ -51,6 +51,8 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
       return: formData.return,
     });
   };
+
+  const [isOneWay, setIsOneWay] = useState(true);
 
   return (
     <div className="search-bar-bg max-h-[546px]">
@@ -81,11 +83,34 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
           <div className="flex flex-row gap-4">
             <div className="flex flex-row items-center gap-1 text-sm font-medium text-purple-900">
               One Way
-              <input type="checkbox" aria-label="Roundtrip"></input>
+              <input
+                type="checkbox"
+                name="oneWay"
+                checked={isOneWay}
+                onChange={(e) => {
+                  const isChecked = e.target.value;
+                  if (isOneWay && isChecked === "on") {
+                    return;
+                  }
+                  setIsOneWay(true);
+                }}
+                aria-label="Roundtrip"
+              ></input>
             </div>
             <div className="flex flex-row items-center gap-1 text-sm font-medium text-purple-900">
               Roundtrip
-              <input type="checkbox" aria-label="Roundtrip"></input>
+              <input
+                type="checkbox"
+                checked={!isOneWay}
+                onChange={(e) => {
+                  const isChecked = e.target.value;
+                  if (!isOneWay && isChecked === "on") {
+                    return;
+                  }
+                  setIsOneWay(false);
+                }}
+                aria-label="Roundtrip"
+              ></input>
             </div>
           </div>
           <div className="flex items-center mt-5 gap-5">
@@ -123,6 +148,7 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
                     name="departure"
                     className="flex flex-col"
                     variant="primary"
+                    placeholder=".../.../..."
                   />
                 </div>
                 <div className="flex flex-col">
@@ -132,6 +158,8 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
                     name="return"
                     className="flex flex-col"
                     variant="primary"
+                    disabled={isOneWay}
+                    placeholder=".../.../..."
                   />
                 </div>
               </div>
