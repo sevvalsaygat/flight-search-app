@@ -26,6 +26,18 @@ import SvgTurkishLira from "./TurkishLira";
 import SvgFilters from "./Filters";
 import SvgBottomArrow from "./BottomArrow";
 import RotaNotFound from "./RotaNotFound";
+import SvgPhoneShake from "./PhoneShake";
+import SvgTicket from "./Ticket";
+import SvgOnlineCheckIn from "./OnlineCheckIn";
+import SvgInvoice from "./Invoice";
+import SvgPhoneCall from "./PhoneCall";
+import SvgShoppingBag from "./ShoppingBag";
+import SvgFlight from "./Flight";
+import SvgBriefCase from "./BriefCase";
+import SvgFlying from "./Flying";
+import SvgAffordableTicket from "./AffordableTicket";
+import SvgTrust from "./Trust";
+import SvgCup from "./Cup";
 
 export default {
   SvgVisa,
@@ -56,4 +68,16 @@ export default {
   SvgFilters,
   SvgBottomArrow,
   RotaNotFound,
+  SvgPhoneShake,
+  SvgTicket,
+  SvgOnlineCheckIn,
+  SvgInvoice,
+  SvgPhoneCall,
+  SvgShoppingBag,
+  SvgFlight,
+  SvgBriefCase,
+  SvgFlying,
+  SvgAffordableTicket,
+  SvgTrust,
+  SvgCup,
 };
