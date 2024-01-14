@@ -16,7 +16,6 @@ export default function Home() {
       ) : (
         <HomeContainer.CampaignSection />
       )}
-      <HomeContainer.FlightList />
       <Layout.Footer />
     </div>
   );
