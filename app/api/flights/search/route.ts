@@ -5,8 +5,6 @@ import dayjs from "dayjs";
 import { flights } from "@api/mock";
 import { FlightType, ErrorResponseType, ListFlightsResponse } from "@api";
 
-// type SortByType = "departure" | "return" | "flight" | "price" | null;
-
 const SORT_BY_OPTIONS = ["departure", "return", "flight", "price"];
 
 export async function POST(req: NextRequest) {
