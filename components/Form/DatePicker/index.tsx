@@ -77,7 +77,9 @@ const DatePicker: React.FC<SelectPropTypes> = ({
         />
       </div>
       {fieldError && (
-        <div className="text-red-500">{fieldError.message as string}</div>
+        <div className="fixed mt-2 ml-1 text-rose-500 text-xs font-normal">
+          {fieldError.message as string}
+        </div>
       )}
     </React.Fragment>
   );

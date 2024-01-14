@@ -39,6 +39,7 @@ const config: Config = {
         rose: {
           100: "#f7f5f6",
           200: "#e3e1e2",
+          500: "#990534",
         },
       },
       fontSize: {

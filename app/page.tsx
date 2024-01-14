@@ -11,11 +11,11 @@ export default function Home() {
     <div className="min-h-screen flex flex-col justify-between">
       <Layout.Header />
       <HomeContainer.FlightSearchForm />
-      {/* {isFirstlySearched ? (
+      {isFirstlySearched ? (
         <HomeContainer.FlightList />
       ) : (
         <HomeContainer.CampaignSection />
-      )} */}
+      )}
       <HomeContainer.FlightList />
       <Layout.Footer />
     </div>

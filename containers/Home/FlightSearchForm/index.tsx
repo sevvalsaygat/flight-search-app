@@ -45,7 +45,11 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
   const { data } = api.useGetAirports();
   const [isOneWay, setIsOneWay] = useState(true);
 
-  const { handleSubmit, resetField } = useFormMethods;
+  const {
+    handleSubmit,
+    resetField,
+    formState: { errors },
+  } = useFormMethods;
   const airportOptions =
     data?.data.map((airport) => ({
       value: airport.refCode,
@@ -168,6 +172,9 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
                     options={airportOptions}
                     name="from"
                     placeholder="Point of Departure"
+                    rules={{
+                      required: "This field must be filled out!",
+                    }}
                     isSearchable
                     isClearable
                     className="w-52"
@@ -181,6 +188,9 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
                     options={airportOptions}
                     name="to"
                     placeholder="Point of Destination"
+                    rules={{
+                      required: "This field must be filled out!",
+                    }}
                     isSearchable
                     isClearable
                     className="w-52"
@@ -194,6 +204,9 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
                     className="flex flex-col"
                     variant="primary"
                     placeholder=".../.../..."
+                    rules={{
+                      required: "This field must be filled out!",
+                    }}
                   />
                 </div>
                 <div className="flex flex-col">
@@ -205,6 +218,11 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
                     variant="primary"
                     disabled={isOneWay}
                     placeholder=".../.../..."
+                    rules={{
+                      required: isOneWay
+                        ? false
+                        : "This field must be filled out!",
+                    }}
                   />
                 </div>
               </div>
