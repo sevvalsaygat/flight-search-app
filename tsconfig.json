@@ -21,7 +21,7 @@
     "paths": {
       "@/*": ["./*"],
       "@app/components": ["./components"],
-      "@api/mock": ["./mock/data.json"],
+      "@api/mock": ["./public/mock/data.json"],
       "@app/hooks": ["./hooks"],
       "@app/hooks/*": ["./hooks/*"],
       "@api": ["./api"],
