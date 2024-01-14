@@ -319,8 +319,8 @@
       "departure": "2024-01-11T07:00:38.470Z",
       "arrival": "2024-01-11T07:56:38.470Z",
       "company": {
-        "name": "PEGASUS",
-        "logo": "/images/logo/pegasus.png"
+        "name": "ANADOLUJET",
+        "logo": "/images/logo/anadolujet.png"
       },
       "remainingSeatCount": 28,
       "isAvailable": true,
@@ -375,8 +375,8 @@
       "departure": "2024-01-13T06:00:38.470Z",
       "arrival": "2024-01-13T07:56:38.470Z",
       "company": {
-        "name": "PEGASUS",
-        "logo": "/images/logo/pegasus.png"
+        "name": "ANADOLUJET",
+        "logo": "/images/logo/anadolujet.png"
       },
       "remainingSeatCount": 28,
       "isAvailable": true,

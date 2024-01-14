@@ -20,6 +20,11 @@ import SvgHotel from "./Hotel";
 import SvgCar from "./Car";
 import SvgTransfer from "./Transfer";
 import SvgAirport from "./Airport";
+import SvgBaggage from "./Baggage";
+import SvgRightArrow from "./RightArrow";
+import SvgTurkishLira from "./TurkishLira";
+import SvgFilters from "./Filters";
+import SvgBottomArrow from "./BottomArrow";
 
 export default {
   SvgVisa,
@@ -44,4 +49,9 @@ export default {
   SvgCar,
   SvgTransfer,
   SvgAirport,
+  SvgBaggage,
+  SvgRightArrow,
+  SvgTurkishLira,
+  SvgFilters,
+  SvgBottomArrow,
 };

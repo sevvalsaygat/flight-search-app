@@ -45,7 +45,7 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
   const { data } = api.useGetAirports();
   const [isOneWay, setIsOneWay] = useState(true);
 
-  const { handleSubmit } = useFormMethods;
+  const { handleSubmit, resetField } = useFormMethods;
   const airportOptions =
     data?.data.map((airport) => ({
       value: airport.refCode,
@@ -136,6 +136,7 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
                     return;
                   }
                   setIsOneWay(true);
+                  resetField("return");
                 }}
                 aria-label="Roundtrip"
               ></input>
@@ -151,6 +152,7 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
                     return;
                   }
                   setIsOneWay(false);
+                  resetField("return");
                 }}
                 aria-label="Roundtrip"
               ></input>
