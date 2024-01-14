@@ -57,15 +57,7 @@ const Header: React.FC<HeaderPropTypes> = () => {
     <div className="flex flex-row justify-between w-full bg-slate-800 shadow-sm h-fit sticky p-3 px-28">
       <div className="flex flex-row items-center gap-6">
         <div className="flex flex-row items-center gap-3 cursor-pointer">
-          <Image src="/airplane.png" width={40} height={40} alt="airplane" />
-          <div className="flex flex-row items-center">
-            <div className="flex text-lg font-light text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-rose-300">
-              SKYTIME
-            </div>
-            <div className="flex text-lg font-light text-transparent bg-clip-text bg-gradient-to-r from-orange-50 to-orange-200">
-              TRAVEL
-            </div>
-          </div>
+          <Image src="/airplane.png" width={60} height={60} alt="airplane" />
         </div>
         <div className="flex flex-row gap-3 ml-2">
           {HEADER_LEFT_ITEM.map(({ title }, index) => {

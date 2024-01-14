@@ -26,7 +26,9 @@
       "@app/hooks/*": ["./hooks/*"],
       "@api": ["./api"],
       "@app/containers": ["./containers"],
-      "@app/stores": ["./stores"]
+      "@app/stores": ["./stores"],
+      "@app/lib": ["./lib"],
+      "@app/layouts": ["./layouts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

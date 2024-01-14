@@ -4,8 +4,9 @@ import React, { useState } from "react";
 
 import { FormProvider, useForm } from "react-hook-form";
 import cn from "classnames";
+import { toast } from "sonner";
 
-import { Form, Icons } from "@app/components";
+import { Form, Icons, Loading } from "@app/components";
 import { api } from "@app/hooks";
 import { useFlightStore } from "@app/stores";
 
@@ -19,25 +20,37 @@ type SearchFormType = {
     value: string;
   };
   departure: string;
-  return: string;
+  return?: string;
 };
 
 const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
   const useFormMethods = useForm<SearchFormType>();
   const setFlights = useFlightStore((state) => state.setFlights);
-  const { mutate } = api.useGetFlights({
+  const setIsOneWayStore = useFlightStore((state) => state.setIsOneWay);
+  const setSearchFormValue = useFlightStore(
+    (state) => state.setSearchFormValue
+  );
+
+  const { mutate, isPending } = api.useGetFlights({
     onSuccess: (data) => {
-      setFlights(data.data);
+      setFlights(data);
     },
     onError: (error) => {
-      setFlights([]);
-      // TODO: show error message
+      setFlights({
+        departureFlights: [],
+        returnFlights: [],
+      });
+      toast.error(error.response?.data.message);
     },
   });
   const { data } = api.useGetAirports();
   const [isOneWay, setIsOneWay] = useState(true);
 
-  const { handleSubmit } = useFormMethods;
+  const {
+    handleSubmit,
+    resetField,
+    formState: { errors },
+  } = useFormMethods;
   const airportOptions =
     data?.data.map((airport) => ({
       value: airport.refCode,
@@ -50,8 +63,15 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
       from: formData.from.value,
       to: formData.to.value,
       departure: formData.departure,
-      return: formData.return,
+      ...(isOneWay
+        ? {}
+        : {
+            return: formData.return,
+          }),
     });
+
+    setSearchFormValue(formData);
+    setIsOneWayStore(isOneWay);
   };
 
   const SEARCH_BY_OPTIONS: Array<{
@@ -86,6 +106,7 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
 
   return (
     <div className="search-bar-bg max-h-[546px]">
+      {isPending && <Loading />}
       <div className="flex flex-row search-bar-label items-center justify-center mt-44 text-2xl font-medium text-white">
         Elevate Your Air Travel Experience: Find the Best Deals with Flight
         Search!
@@ -121,6 +142,7 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
                     return;
                   }
                   setIsOneWay(true);
+                  resetField("return");
                 }}
                 aria-label="Roundtrip"
               ></input>
@@ -136,6 +158,7 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
                     return;
                   }
                   setIsOneWay(false);
+                  resetField("return");
                 }}
                 aria-label="Roundtrip"
               ></input>
@@ -151,6 +174,9 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
                     options={airportOptions}
                     name="from"
                     placeholder="Point of Departure"
+                    rules={{
+                      required: "This field must be filled out!",
+                    }}
                     isSearchable
                     isClearable
                     className="w-52"
@@ -164,6 +190,9 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
                     options={airportOptions}
                     name="to"
                     placeholder="Point of Destination"
+                    rules={{
+                      required: "This field must be filled out!",
+                    }}
                     isSearchable
                     isClearable
                     className="w-52"
@@ -177,6 +206,9 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
                     className="flex flex-col"
                     variant="primary"
                     placeholder=".../.../..."
+                    rules={{
+                      required: "This field must be filled out!",
+                    }}
                   />
                 </div>
                 <div className="flex flex-col">
@@ -188,6 +220,11 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
                     variant="primary"
                     disabled={isOneWay}
                     placeholder=".../.../..."
+                    rules={{
+                      required: isOneWay
+                        ? false
+                        : "This field must be filled out!",
+                    }}
                   />
                 </div>
               </div>
