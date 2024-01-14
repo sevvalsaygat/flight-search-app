@@ -11,6 +11,12 @@ const SORT_BY_OPTIONS = ["departure", "return", "flight", "price"];
 
 export async function POST(req: NextRequest) {
   try {
+    await new Promise<void>((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, 2500);
+    });
+
     const body = await req.json();
     const from = body.from;
     const to = body.to;

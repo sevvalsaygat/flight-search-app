@@ -7,7 +7,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { useFlightStore } from "@app/stores";
 import { Home } from "@app/containers";
 import { api } from "@app/hooks";
-import { Icons } from "@app/components";
+import { Icons, Loading } from "@app/components";
 
 type FlightListPropTypes = {};
 
@@ -52,10 +52,11 @@ const FlightList: React.FC<FlightListPropTypes> = () => {
     });
   }, [sortBy, mutate, searchFormValue, isOneWay]);
 
-  console.log({ isPending });
+  // console.log({ isPending });
 
   return (
     <div className="flex flex-row justify-center">
+      {isPending && <Loading />}
       <div className="flex flex-col w-1/2 gap-6">
         <div className="flex flex-col items-end">
           <Menu as="div" className="relative inline-block text-left mt-9">
