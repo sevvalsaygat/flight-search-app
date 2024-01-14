@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 import { FormProvider, useForm } from "react-hook-form";
 import cn from "classnames";
+import { toast } from "sonner";
 
 import { Form, Icons, Loading } from "@app/components";
 import { api } from "@app/hooks";
@@ -39,7 +40,7 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
         departureFlights: [],
         returnFlights: [],
       });
-      // TODO: show error message
+      toast.error(error.response?.data.message);
     },
   });
   const { data } = api.useGetAirports();

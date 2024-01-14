@@ -11,11 +11,17 @@ const SORT_BY_OPTIONS = ["departure", "return", "flight", "price"];
 
 export async function POST(req: NextRequest) {
   try {
-    await new Promise<void>((resolve, reject) => {
+    await new Promise<void>((resolve) => {
       setTimeout(() => {
         resolve();
       }, 2500);
     });
+
+    const randomNumber = Math.floor(Math.random() * 10);
+
+    if (randomNumber > 7) {
+      throw new Error();
+    }
 
     const body = await req.json();
     const from = body.from;

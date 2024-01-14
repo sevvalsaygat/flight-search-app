@@ -25,6 +25,7 @@ import SvgRightArrow from "./RightArrow";
 import SvgTurkishLira from "./TurkishLira";
 import SvgFilters from "./Filters";
 import SvgBottomArrow from "./BottomArrow";
+import RotaNotFound from "./RotaNotFound";
 
 export default {
   SvgVisa,
@@ -54,4 +55,5 @@ export default {
   SvgTurkishLira,
   SvgFilters,
   SvgBottomArrow,
+  RotaNotFound,
 };

@@ -109,7 +109,7 @@ const Select: React.FC<SelectPropTypes> = ({
         />
       </div>
       {fieldError && (
-        <div className="fixed mt-2 ml-1 text-rose-500 text-xs font-normal">
+        <div className="absolute mt-20 ml-1 text-rose-500 text-xs font-normal">
           {fieldError.message as string}
         </div>
       )}
