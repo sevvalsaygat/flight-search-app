@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import cn from "classnames";
 
-import { Form, Icons } from "@app/components";
+import { Form, Icons, Loading } from "@app/components";
 import { api } from "@app/hooks";
 import { useFlightStore } from "@app/stores";
 
@@ -30,7 +30,7 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
     (state) => state.setSearchFormValue
   );
 
-  const { mutate } = api.useGetFlights({
+  const { mutate, isPending } = api.useGetFlights({
     onSuccess: (data) => {
       setFlights(data);
     },
@@ -105,6 +105,7 @@ const FlightSearchForm: React.FC<FlightSearchFormPropTypes> = () => {
 
   return (
     <div className="search-bar-bg max-h-[546px]">
+      {isPending && <Loading />}
       <div className="flex flex-row search-bar-label items-center justify-center mt-44 text-2xl font-medium text-white">
         Elevate Your Air Travel Experience: Find the Best Deals with Flight
         Search!

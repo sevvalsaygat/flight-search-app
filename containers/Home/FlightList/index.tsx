@@ -52,8 +52,6 @@ const FlightList: React.FC<FlightListPropTypes> = () => {
     });
   }, [sortBy, mutate, searchFormValue, isOneWay]);
 
-  // console.log({ isPending });
-
   return (
     <div className="flex flex-row justify-center">
       {isPending && <Loading />}
